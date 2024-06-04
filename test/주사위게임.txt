@@ -1,0 +1,37 @@
+import random
+end_point = 30
+pl_pos = 1
+com_pos = 1
+com_pos2 = 1
+def board():
+    print("●" * (pl_pos-1) + "□" + "-" * (end_point - pl_pos) + "|Goal")
+    print("●" * (com_pos-1) + "◇" + "-" * (end_point - com_pos) + "|Goal")
+    print("●" * (com_pos2-1) + "◈" + "-" * (end_point - com_pos2) + "|Goal")
+    
+board()
+print("Game Start")
+while True:
+    input("Enter to Move")
+    pl_pos = pl_pos + random.randint(1,7)
+    if pl_pos > end_point:
+        pl_pos = end_point
+    board()
+    if pl_pos == 30:
+        print("You Win")
+        break
+    input("Enter to COM Move")
+    com_pos = com_pos + random.randint(3,5)
+    if com_pos > end_point:
+        com_pos = end_point
+    board()
+    if com_pos == end_point:
+        print("COM Win")
+        break
+    input("Enter to COM2 Move")
+    com_pos2 = com_pos2 + random.randint(0,8)
+    if com_pos2 > end_point:
+        com_pos2 = end_point
+    board()
+    if com_pos2 == end_point:
+        print("COM2 Win")
+        break
