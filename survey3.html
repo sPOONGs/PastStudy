@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>과일 가격 계산</title>
+    <script type="text/javascript">
+        function calculatePrice() {
+            // 선택된 과일들의 인덱스 가져오기
+            var combo = document.getElementById("fruits");
+            var selectedFruitIndexes = [];
+            for (var i = 0; i < combo.options.length; i++) {
+                if (combo.options[i].selected) {
+                    selectedFruitIndexes.push(i);
+                }
+            }
+
+            // 선택된 과일들의 가격과 이름 가져오기
+            var totalPrice = 0;
+            var selectedFruits = [];
+            for (var i = 0; i < selectedFruitIndexes.length; i++) {
+                var fruitIndex = selectedFruitIndexes[i];
+                var fruitOption = combo.options[fruitIndex];
+
+                var fruitPrice = 0;
+                switch (fruitIndex) {
+                    case 1:
+                        fruitPrice = 1000;
+                        break;
+                    case 2:
+                        fruitPrice = 1500;
+                        break;
+                    case 3:
+                        fruitPrice = 2000;
+                        break;
+                    case 4:
+                        fruitPrice = 2500;
+                        break;
+                }
+
+                totalPrice += fruitPrice;
+
+                selectedFruits.push({
+                    name: fruitOption.text,
+                    price: fruitPrice
+                });
+            }
+
+            // 선택된 과일들의 상품명과 가격 표시
+            var fruitInfo = "";
+            for (var i = 0; i < selectedFruits.length; i++) {
+                var fruit = selectedFruits[i];
+                fruitInfo += "상품명: " + fruit.name + ", 가격: " + fruit.price + "원<br>";
+            }
+
+            document.getElementById("fruitInfo").innerHTML = fruitInfo;
+
+            // 총 가격 표시
+            document.getElementById("totalPrice").innerHTML = "총 가격: " + totalPrice + "원";
+        }
+    </script>
+</head>
+<body>
+    <h1>과일 가격 계산</h1>
+
+    <select id="fruits" multiple>
+        <option value="1" selected>과일 선택</option>
+        <option value="2">바나나</option>
+        <option value="3">사과</option>
+        <option value="4">포도</option>
+        <option value="5">딸기</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="calculatePrice()">가격 계산</button>
+
+    <br><br>
+
+    <div id="fruitInfo"></div>
+
+    <br>
+
+    <div id="totalPrice"></div>
+
+</body>
+</html>

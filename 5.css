@@ -1,0 +1,15 @@
+html, body { margin: 0; padding: 0; height: 100%; }
+header { width: 85%; height: 20%;
+	background: yellow; }
+.nav { width: 15%; height: 72%; float: left;
+	background: orange; }
+.section { width: 70%; height: 72%; float: left;
+	background: skyblue; }
+.footer { width: 85%; height: 8%; clear: both;
+	background: plum; }
+h1{color: brown; text-align: center;}
+.p1{text-indent: 1em; font-size: 1em; font-family: "Times New Roman",serif;}
+h2{
+	color: blue; text-shadow: 1px 1px 3px;
+}
+footer{background-color: orange;border-radius : 50px;}
